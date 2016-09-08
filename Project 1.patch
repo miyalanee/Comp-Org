@@ -1,0 +1,19 @@
+--- "Project 1 - fib.s"	2016-09-07 23:08:29.010011400 -0400
++++ "Project 1 - Final.s"	2016-09-07 23:15:13.768256200 -0400
+@@ -2,7 +2,7 @@
+ buffer:
+ .space 160
+ .text
+-main:
++start:
+ li    $t1, 1
+ li    $t2, 4
+ sw    $t1, buffer($0)   # buffer[0] = 1
+@@ -17,4 +17,7 @@
+ sw    $t5, buffer($t0)  # buffer[i] = buffer[i-1] + buffer[i-2]
+ addi  $t0, $t0, 4       # i++
+ blt   $t0, 160, loop    # } while (i < 40)
++li    $v0, 1
++move  $a0, $t0
++syscall
+ jr    $ra
